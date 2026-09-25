@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,11 +28,27 @@
             <a href="#services">Services</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
-            <button id="wishlistBtn">❤️ Wishlist (<span id="wishlistCount">0</span>)</button>
+
+            <!-- Wishlist Button -->
+            <button id="wishlistBtn">❤️ Wishlist</button>
         </nav>
 
     </header>
 
+
+    <!-- Wishlist Sidebar -->
+    <div id="wishlistSidebar" class="wishlist-sidebar">
+
+        <div class="wishlist-header">
+            <h2>❤️ My Wishlist</h2>
+
+            <button id="closeWishlist">✕</button>
+        </div>
+
+        <div id="wishlistSideItems">
+        </div>
+
+    </div>
 
     <!-- Hero -->
     <section id="home" class="hero">
@@ -42,7 +58,7 @@
             <p class="small-title">ONE COMPANY • MULTIPLE SOLUTIONS</p>
 
             <h1>
-                Professional Services
+                Swismax Services
                 <span>For Your Business</span>
             </h1>
 
@@ -105,11 +121,7 @@
         <!-- Search -->
         <div class="search-box">
 
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Search service..."
-            >
+            <input type="text" id="searchInput" placeholder="Search service...">
 
             <button id="searchBtn">
                 Search
@@ -212,22 +224,11 @@
 
         <form id="contactForm">
 
-            <input
-                type="text"
-                id="userName"
-                placeholder="Your Name"
-            >
+            <input type="text" id="userName" placeholder="Your Name">
 
-            <input
-                type="email"
-                id="userEmail"
-                placeholder="Your Email"
-            >
+            <input type="email" id="userEmail" placeholder="Your Email">
 
-            <textarea
-                id="userMessage"
-                placeholder="Your Message"
-            ></textarea>
+            <textarea id="userMessage" placeholder="Your Message"></textarea>
 
             <button type="submit">
                 Send Message
@@ -260,5 +261,5 @@
     <script src="script.js"></script>
 
 </body>
-</html>
 
+</html>

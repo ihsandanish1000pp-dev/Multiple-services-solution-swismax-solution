@@ -1,8 +1,6 @@
-
 // ============================================
 // SERVICES DATA
 // ============================================
-
 let services = [
 
     {
@@ -125,7 +123,7 @@ function displayServices(serviceList) {
 
 
     // map()
-    let cards = serviceList.map(function(service) {
+    let cards = serviceList.map(function (service) {
 
         return `
             <div class="service-card">
@@ -180,7 +178,7 @@ function viewService(id) {
 
     try {
 
-        let service = services.find(function(item) {
+        let service = services.find(function (item) {
             return item.id === id;
         });
 
@@ -229,9 +227,7 @@ function viewService(id) {
 
         }
 
-    }
-
-    catch (error) {
+    } catch (error) {
 
         alert("Sorry! Service not found.");
 
@@ -248,7 +244,7 @@ function viewService(id) {
 
 function addToWishlist(id) {
 
-    let service = services.find(function(item) {
+    let service = services.find(function (item) {
         return item.id === id;
     });
 
@@ -258,7 +254,7 @@ function addToWishlist(id) {
     }
 
 
-    let alreadyAdded = wishlist.find(function(item) {
+    let alreadyAdded = wishlist.find(function (item) {
         return item.id === id;
     });
 
@@ -348,7 +344,7 @@ function displayWishlist() {
 function removeFromWishlist(id) {
 
     wishlist =
-        wishlist.filter(function(service) {
+        wishlist.filter(function (service) {
             return service.id !== id;
         });
 
@@ -375,7 +371,7 @@ function searchServices() {
 
 
     let result =
-        services.filter(function(service) {
+        services.filter(function (service) {
 
             return service.name
                 .toLowerCase()
@@ -407,13 +403,13 @@ searchInput.addEventListener(
 // CATEGORY FILTER
 // ============================================
 
-categoryButtons.forEach(function(button) {
+categoryButtons.forEach(function (button) {
 
     button.addEventListener(
         "click",
-        function() {
+        function () {
 
-            categoryButtons.forEach(function(btn) {
+            categoryButtons.forEach(function (btn) {
                 btn.classList.remove("active");
             });
 
@@ -434,7 +430,7 @@ categoryButtons.forEach(function(button) {
 
 
             let result =
-                services.filter(function(service) {
+                services.filter(function (service) {
 
                     return service.category === category;
 
@@ -460,14 +456,13 @@ let navLinks =
     document.getElementById("navLinks");
 
 
-menuBtn.addEventListener(
-    "click",
-    function() {
 
-        navLinks.classList.toggle("active");
 
-    }
-);
+
+
+    
+
+
 
 
 // ============================================
@@ -483,7 +478,7 @@ let formMessage =
 
 contactForm.addEventListener(
     "submit",
-    function(event) {
+    function (event) {
 
         event.preventDefault();
 
@@ -517,7 +512,7 @@ contactForm.addEventListener(
                 "Sending message...";
 
 
-            setTimeout(function() {
+            setTimeout(function () {
 
                 formMessage.innerText =
                     "✓ Message sent successfully!";
@@ -526,9 +521,7 @@ contactForm.addEventListener(
 
             }, 2000);
 
-        }
-
-        catch (error) {
+        } catch (error) {
 
             formMessage.innerText =
                 "❌ " + error.message;
@@ -552,7 +545,7 @@ function startCounter(elementId, target) {
 
 
     let timer =
-        setInterval(function() {
+        setInterval(function () {
 
             count++;
 
@@ -623,6 +616,59 @@ while (number < 3) {
 }
 
 
+
+
+
+// ============================================
+// WISHLIST SIDE BAR
+// ============================================
+
+let wishlistBtn =
+    document.getElementById("wishlistBtn");
+
+let wishlistSidebar =
+    document.getElementById("wishlistSidebar");
+
+let closeWishlist =
+    document.getElementById("closeWishlist");
+
+let wishlistSideItems =
+    document.getElementById("wishlistSideItems");
+
+
+// Open Wishlist
+wishlistBtn.addEventListener("click", function () {
+
+    wishlistSidebar.classList.add("active");
+
+    displaySideWishlist();
+
+});
+
+
+// Close Wishlist
+closeWishlist.addEventListener("click", function () {
+
+    wishlistSidebar.classList.remove("active");
+
+});
+
+
+
+menuBtn.addEventListener("click", function () {
+
+    navLinks.classList.toggle("active");
+
+    menuBtn.classList.toggle("active");
+
+});
+
+
+
+
+
+
+
 // ============================================
 // INITIAL DISPLAY
 // ============================================
@@ -630,4 +676,3 @@ while (number < 3) {
 displayServices(services);
 
 displayWishlist();
-
